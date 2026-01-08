@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InfoBloom Tech Solution | Innovative IT Services</title>
+    <style>
+        /* --- CSS STYLES --- */
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --text-color: #333;
+            --light-bg: #f4f7f6;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+        }
+
+        /* Navigation */
+        header {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Main Content Styling */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+            background: var(--white);
+            min-height: 60vh;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .page-content {
+            display: none; /* Hidden by default, JS will show them */
+            animation: fadeIn 0.5s ease;
+        }
+
+        .active-content {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1, h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        /* Service Cards */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .service-card {
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        /* Form Styling */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 500px;
+        }
+
+        input, textarea {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 12px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 50px;
+        }
+
+        .footer-links a {
+            color: #bdc3c7;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo"><h2>InfoBloom</h2></div>
+        <nav>
+            <ul>
+                <li><a onclick="showPage('home')">Home</a></li>
+                <li><a onclick="showPage('about')">About Us</a></li>
+                <li><a onclick="showPage('contact')">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section id="home" class="page-content active-content">
+            <h1>Expert Tech Solutions for Your Business</h1>
+            <p>Welcome to InfoBloom Tech Solution. We specialize in building expert teams and delivering high-quality digital products.</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Web Development</h3>
+                    <p>Modern, responsive websites built with the latest frameworks like React and Laravel.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Mobile Apps</h3>
+                    <p>Native and cross-platform mobile solutions for Android and iOS devices.</p>
+                </div>
+                <div class="service-card">
+                    <h3>SEO & Marketing</h3>
+                    <p>Boosting your online presence through data-driven SEO and social media strategies.</p>
+                </div>
+                <div class="service-card">
+                    <h3>IT Training</h3>
+                    <p>Internships and training programs to nurture the next generation of tech talent.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="page-content">
+            <h1>About InfoBloom</h1>
+            <p>InfoBloom Tech Solution is a global IT service provider dedicated to digital acceleration. We help businesses navigate technological challenges through expert engineering and strategic roadmapping.</p>
+            <br>
+            <h3>Our Mission</h3>
+            <p>To deliver elegant solutions to complex difficulties by combining deep tech expertise with top-tier talent.</p>
+        </section>
+
+        <section id="contact" class="page-content">
+            <h1>Contact Us</h1>
+            <p>Have a project in mind? Reach out to our team today.</p>
+            <br>
+            <form class="contact-form" onsubmit="handleContact(event)">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea rows="5" placeholder="How can we help you?" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 InfoBloom Tech Solution. All Rights Reserved.</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+        </div>
+    </footer>
+
+    <script>
+        /* --- JAVASCRIPT LOGIC --- */
+
+        // Function to switch between "pages" without reloading
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page-content');
+            pages.forEach(page => {
+                page.classList.remove('active-content');
+            });
+
+            // Show the selected page
+            document.getElementById(pageId).classList.add('active-content');
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Mock form submission
+        function handleContact(event) {
+            event.preventDefault();
+            alert("Thank you! Your message has been sent to InfoBloom.");
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>
